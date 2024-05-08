@@ -1,25 +1,31 @@
-                            
-// Node structure for the binary tree
-class Node {
+/**
+ * La classe Node représente un nœud dans un arbre binaire. Chaque nœud possède trois propriétés :
+  data : Stocke la valeur associée au nœud.
+  left : Pointe vers le nœud enfant gauche (ou null s’il n’y a pas d’enfant gauche).
+  right : Pointe vers le nœud enfant droit (ou null s’il n’y a pas d’enfant droit).
+  La fonction constructeur initialise une nouvelle instance de Node avec la valeur donnée (val).
+  Elle définit la propriété data à val et initialise les propriétés left et right à null.
+ */
+
+class Node { 
     constructor(val) {
-        this.data = val;
-        this.left = null;
-        this.right = null;
+        this.data = val; 
+        this.left = null; 
+        this.right = null; 
     }
 }
 
 class Solution {
-    // Function to check if
-    // two subtrees are symmetric
+    /**
+     * isSymmetricUtil(root1, root2) : Il s’agit d’une méthode auxiliaire qui vérifie récursivement si deux sous-arbres (enracinés à root1 et root2) sont symétriques.
+       Si l’un des deux (root1 ou root2) est null, elle renvoie true si les deux sont null, sinon false.
+       Sinon, elle vérifie si les valeurs de données de root1 et root2 sont égales, et vérifie récursivement les sous-arbres gauche et droit.
+     */
+    
     isSymmetricUtil(root1, root2) {
-        // Check if either subtree is NULL
         if (root1 === null || root2 === null) {
-            // If one subtree is NULL, the other
-            // must also be NULL for symmetry
             return root1 === root2;
         }
-        // Check if the data in the current nodes is equal
-        // and recursively check for symmetry in subtrees
         return (
             root1.data === root2.data &&
             this.isSymmetricUtil(root1.left, root2.right) &&
@@ -27,20 +33,22 @@ class Solution {
         );
     }
 
-    // Public function to check if the
-    // entire binary tree is symmetric
+    /**
+     * isSymmetric(root) : Cette méthode vérifie si l’arbre binaire entier (enraciné à root) est symétrique.
+       Si l’arbre est vide (c’est-à-dire si root est null), elle renvoie true.
+       Sinon, elle appelle la méthode isSymmetricUtil pour vérifier la symétrie des sous-arbres gauche et droit.
+     */
+
     isSymmetric(root) {
-        // Check if the tree is empty
         if (!root) {
-            // An empty tree is
-            // considered symmetric
             return true;
         }
-        // Call the utility function
-        // to check symmetry of subtrees
         return this.isSymmetricUtil(root.left, root.right);
     }
 }
+
+
+
 
 // Function to print the Inorder
 // Traversal of the Binary Tree
