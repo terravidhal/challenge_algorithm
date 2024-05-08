@@ -1,0 +1,10 @@
+La notation Big O est une représentation utilisée pour exprimer 
+la complexité du pire cas d'un algorithme par rapport à sa taille d'entrée N . 
+Cela nous aide à faire des approximations sur la façon dont les performances 
+d'un algorithme se comporteront lorsque la taille d'entrée 
+deviendra considérablement grande
+
+
+La complexité O(1), ou complexité « Temps constant »
+signifie que quelle que soit la taille de l'entrée, 
+le temps d'exécution d'un algorithme reste constant
